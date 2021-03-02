@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: GH Actions Snyk Scan
+name: Snyk Scan Docker Hub
 
 on: workflow_dispatch
 
