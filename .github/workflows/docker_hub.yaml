@@ -1,0 +1,18 @@
+# This is a basic workflow to help you get started with Actions
+
+name: GH Actions Snyk Scan
+
+on: workflow_dispatch
+
+jobs:
+ DockerHub-Run:
+    
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Snyk to check Docker images for vulnerabilities
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: omearaj/goof:latest
