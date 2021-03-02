@@ -21,7 +21,8 @@ jobs:
         project_id: ${{ secrets.PROJECT_ID }}
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         export_default_credentials: true
-    - run: gcloud auth activate-service-account datadog-sample-app@jamieo4626.iam.gserviceaccount.com --password-file ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+    #- run: gcloud auth activate-service-account datadog-sample-app@jamieo4626.iam.gserviceaccount.com --key-file ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+    - run: gcloud auth configure-docker
     - name: Run Snyk to check Docker images for vulnerabilities
       uses: snyk/actions/docker@master
       env:
