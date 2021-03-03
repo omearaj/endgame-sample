@@ -4,11 +4,6 @@ name: Private GCR Snyk Scan
 
 on: workflow_dispatch
 
-env:
-  zone: us-central1-c
-  machineType: e2-highcpu-4 
-  releaseName: datadog-agent  
-
 jobs:
  GCR-Run:
     
