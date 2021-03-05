@@ -1,0 +1,22 @@
+name: Private GCR Snyk Scan gcLoud SDK
+
+on: workflow_dispatch
+
+jobs:
+ GCR-Run:
+    
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to GCR
+      uses: docker/login-action@v1
+      with:
+        registry: gcr.io
+        username: _json_key
+        password: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+    - name: Run Snyk to check Docker images for vulnerabilities
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: gcr.io/jamieo4626/goof
