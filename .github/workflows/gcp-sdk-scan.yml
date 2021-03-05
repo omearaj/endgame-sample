@@ -15,7 +15,6 @@ jobs:
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         export_default_credentials: true
     - run: |- 
-       gcloud auth login
        gcloud auth activate-service-account snyk-scan@jamieo4626.iam.gserviceaccount.com --key-file=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
        gcloud auth configure-docker
     - name: Run Snyk to check Docker images for vulnerabilities
